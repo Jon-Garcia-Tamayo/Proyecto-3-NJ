@@ -20,7 +20,7 @@
         <h2 class="center-items">Manejador de libros</h2>
         <div class="separador">
             <div>
-                <form>
+                <form method="post" action="controlador.php">
                     <h3 class="center-items">Crear/Filtrar</h3>
                     <label id="nombreLibro">Nombre Libro</label><br>
                     <input type="text" name="nombreLibro" required /><br />
@@ -30,7 +30,9 @@
                     <input type="text" name="paginas" /><br />
                     <label id="genero">Genero</label><br>
                     <input type="text" name="genero" /><br />
-                    <label class="comen">Portada</label><br />
+                    <label class="imagenPortada">Imagen portada</label><br />
+                    <input type="file" name="imagenPortada" /><br />
+                    <label class="imagenPortada">Portada</label><br />
                     <div class='portada'>
                         <input type="radio" name="portadaTipo" value="portadaBlanda" />Blanda
                         <input type="radio" name="portadaTipo" value="portadaDura" />Dura
@@ -40,7 +42,7 @@
                 </form>
             </div>
             <div>
-                <form>
+                <form method="post" action="controlador.php">
                     <h3 class="center-items">Borrar</h3>
                     <label id="nombreLibro">Nombre Libro</label><br>
                     <input type="text" name="nombreLibro" required /><br />
