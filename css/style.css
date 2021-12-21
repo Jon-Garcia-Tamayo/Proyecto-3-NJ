@@ -1,0 +1,85 @@
+@import url("reset.css");
+
+@font-face {
+    font-family: "Source Sans Pro", sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+}
+
+:root {
+    --color-primario: #085b98;
+    --color-secundario: #1a3c69;
+    --texto: #707070;
+}
+
+body {
+    width: 90%;
+    margin: 0 auto;
+    font-family: sans-serif;
+    color: var(--texto)
+}
+
+.header-footer {
+    background-color: var(--color-secundario);
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+header {    
+    justify-content: space-between;
+}
+
+footer {
+    justify-content: center;
+}
+
+header img, header h1 {
+    float: left;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color-primario);
+}
+
+li {
+    display: inline-block;
+}
+
+hr {
+    border: 0.5px solid var(--texto);
+}
+
+.center-items {
+    text-align: center;
+}
+
+button {
+    background-color: var(--color-primario);
+    color: white;
+    font-size: 15px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: none;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.separador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario div form {
+    display: inline-block;
+    margin: 10px 100px;
+}
+
+label, input {
+    margin: 7px 0px;
+}
