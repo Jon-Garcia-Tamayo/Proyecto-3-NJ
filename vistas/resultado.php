@@ -28,10 +28,14 @@
                     <input type="text" name="autor" required /><br />
                     <label id="paginas">Nº Páginas</label><br>
                     <input type="text" name="paginas" /><br />
-                    <label id="genero">Genero</label><br>
-                    <input type="text" name="genero" /><br />
-                    <label class="imagenPortada">Imagen portada</label><br />
-                    <input type="file" name="imagenPortada" /><br />
+                    <label class="generos">Genero</label><br />
+                    <select name="generos[]" multiple="multiple">
+                        <option value="accion" selected="selected">Accion</option>
+                        <option value="aventura">Aventura</option>
+                        <option value="fantasia">Fantasia</option>
+                        <option value="policiaco">Policiaco</option>
+                        <option value="paranormal">Paranormal</option>
+                    </select><br /><br />
                     <label class="imagenPortada">Portada</label><br />
                     <div class='portada'>
                         <input type="radio" name="portadaTipo" value="portadaBlanda" />Blanda
