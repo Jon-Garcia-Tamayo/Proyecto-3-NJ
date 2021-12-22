@@ -1,3 +1,5 @@
 <?php
-    include "vistas/resultado.php";
+    include "controlador/controlador.php";
+    $controlador = new Controlador();
+    $controlador->run();
 ?>
