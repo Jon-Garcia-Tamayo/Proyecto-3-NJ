@@ -3,7 +3,8 @@
      * Esta clase modela el controlador encargado de manejar la vista 
      * y el modelo.
      */
-    class Controlador {
+    class Controlador 
+    {
         /**
          * Si el formulario esta relleno muestra el resultado, sino
          * muestra el formulario a rellenar.
