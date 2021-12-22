@@ -51,6 +51,14 @@
         </div>
     </main>
 
+    <?php
+        if (isset($resultado)) {
+            echo "<div class=\"resultado center-items\"/>";
+            echo $resultado;  
+            echo "</div>";
+        }
+    ?>
+
 <?php
     include "pie.php";
 ?>

@@ -62,7 +62,7 @@
 
         private function mostrarResultado($resultado)
         {
-            include 'vistas/resultado.php';
+            include 'vistas/formulario.php';
         }
     }
 ?>
