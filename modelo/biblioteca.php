@@ -1,4 +1,8 @@
 <?php
+    /**
+     * Esta clase modela una biblioteca encargada de guardar todos
+     * los libros de nuestra aplicacion web.
+     */
     class Biblioteca 
     {
         public function __construct()

@@ -1,4 +1,7 @@
 <?php
+    /**
+     * Esta clase modela un libro para ser usado en la biblioteca.
+     */
     class Libro
     {
         public function __construct($nombre, $autor, $paginas, $genero, $portadaBlanda)
