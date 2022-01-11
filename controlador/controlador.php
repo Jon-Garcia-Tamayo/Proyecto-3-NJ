@@ -12,7 +12,7 @@
         public function run()
         {
             if (!isset($_POST['crear'])) {
-                $this->mostrarFormulario();
+                $this->mostrarFormulario(null);
             } else {
                 $resultado = 'El nombre del libro es: ';
             
@@ -50,17 +50,17 @@
                     }
                 }
 
-                $this->mostrarResultado($resultado);
+                $this->mostrarFormulario($resultado);
             }
             exit();
         }
 
-        private function mostrarFormulario() 
-        {
-            include 'vistas/formulario.php';
-        }
-
-        private function mostrarResultado($resultado)
+        /**
+         * Muestra el formulario con un resultado a pasar.
+         * 
+         * @param string resultado - resultado a mostrar.
+         * */
+        private function mostrarFormulario($resultado)
         {
             include 'vistas/formulario.php';
         }
