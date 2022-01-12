@@ -1,5 +1,6 @@
 <?php
     include "cabecera.php";
+    include "helper/input.php";
 ?>
 
         <div class="formulario">
@@ -10,13 +11,13 @@
                         <h3 class="center-items">Crear/Filtrar</h3>
 
                         <label id="nombreLibro">Nombre Libro</label><br>
-                        <input type="text" name="nombreLibro" required /><br />
+                        <input type="text" name="nombreLibro" value="<?php echo Input::get('nombreLibro') ?>" required /><br />
 
                         <label id="autor">Autor</label><br>
-                        <input type="text" name="autor" required /><br />
+                        <input type="text" name="autor" value="<?php echo Input::get('autor') ?>" required /><br />
 
                         <label id="paginas">Nº Páginas</label><br>
-                        <input type="text" name="paginas" /><br />
+                        <input type="text" name="paginas" value="<?php echo Input::get('paginas') ?>" /><br />
 
                         <label class="generos">Genero</label><br />
                         <select name="generos[]" multiple="multiple">
