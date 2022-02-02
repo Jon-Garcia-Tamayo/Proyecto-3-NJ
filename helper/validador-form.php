@@ -14,7 +14,32 @@
 
         public function validar($fuente, $reglasValidacion) 
         {
-            
+            foreach ($fuente as $nombreCampo => $valorCampo) {
+                if ($nombreCampo != "crear" && $nombreCampo != "generos") {
+                    $arrayRegla = $reglasValidacion[$nombreCampo];
+                    foreach ($arrayRegla as $key => $value) {
+                        $mensajeError;
+                        switch ($key) {
+                            case "required":
+                                if (($valorCampo == "") == $value) {
+                                    $mensajeError = "ERROR: El campo " . $nombreCampo . " es requerido";
+                                    $this->addError($nombreCampo, $mensajeError);
+                                }
+                                break;
+    
+                            case "type":
+                                if (is_numeric($valorCampo)) {
+                                    $valorCampo = intval($valorCampo);
+                                } else {
+                                    $mensajeError = "ERROR: El campo " . $nombreCampo . " debe ser numerico";
+                                    $this->addError($nombreCampo, $mensajeError);
+                                }
+                                break;
+                        }
+                    }
+                }
+            }
+            $this->valido = count($this->errores) == 0;
         }
 
         public function addError($nombreCampo, $error)
