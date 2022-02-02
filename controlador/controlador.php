@@ -88,7 +88,7 @@
                             $resultado .=  " • " . $generos . "<br>";
                         }
                     } else {
-                        $resultado .= $campo . ": " . $valorCampo . "<br/>";
+                        $resultado .= $campo . ": " . strip_tags(trim($valorCampo)) . "<br/>";
                     }
                 }                
             }

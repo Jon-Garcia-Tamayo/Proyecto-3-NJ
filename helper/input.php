@@ -15,7 +15,7 @@
             } else {
                 $campo = "";
             }
-            return $campo;
+            return $campos;
         }
 
         public static function filtrarDato($datos)
