@@ -1,4 +1,7 @@
 <?php
+    include "helper/validador-form.php";
+
+
     /**
      * Esta clase modela el controlador encargado de manejar la vista 
      * y el modelo.
@@ -11,48 +14,16 @@
          */
         public function run()
         {
-            if (!isset($_POST['crear'])) {
-                $this->mostrarFormulario(null);
-            } else {
-                $resultado = 'El nombre del libro es: ';
-            
-                $nombre = $_POST['nombreLibro'];
-                $autor = $_POST['autor'];
-                $numPaginas = $_POST['paginas'];
-            
-                $resultado .= $nombre . '<br /> El autor es: ' . $autor . '<br /> El Nº de paginas es: ' . $numPaginas
-                . '<br />';
-            
-                if (isset($_POST['generos'])){
-                    $generos = $_POST['generos'];
-                    if(count($generos) <= 1){
-                        $resultado .= 'El genero es: ' . $generos[0];
-                    } else {
-                        $resultado .= 'Los generos son: <br />';
-                        foreach ($generos as $genero) {
-                            $resultado .= '• ' . $genero . '<br />';
-                        }
-                    }
-                }
-
-                $resultado .= "<br />";
-            
-                if (isset($_POST['portadaTipo'])){
-                    $portada = $_POST['portadaTipo'];
-                    switch ($portada) {
-                        case "portadaBlanda": 
-                            $resultado .= "La portada es Blanda";
-                            break;
-            
-                        case "portadaDura": 
-                            $resultado .= "La portada es Dura";
-                            break;
-                    }
-                }
-
-                $this->mostrarFormulario($resultado);
+            // Entrada a la pagina por primera vez
+            if (!isset($_POST["nombreLibro"])) {
+                $this->mostrarFormulario("validar", null, null);
+                exit();
             }
-            exit();
+
+            if(isset($_POST["nombreLibro"])) {
+                $this->validar();
+                exit();
+            }
         }
 
         /**
@@ -60,9 +31,69 @@
          * 
          * @param string resultado - resultado a mostrar.
          * */
-        private function mostrarFormulario($resultado)
+        private function mostrarFormulario($accion, $validador, $resultado)
         {
             include 'vistas/formulario.php';
         }
+
+        /**
+         * Crea y devuelve un array con reglas de validacion.
+         * 
+         * @return array
+         * */
+        public function crearReglasDeValidacion()
+        {
+            $reglasDeValidacion = array(
+                "nombreLibro" => array("required" => true),
+                "autor" => array("required" => true),
+                "paginas" => array("required" => true, "type" => "integer"),
+                "portadaTipo" => array("required" => true)
+            );
+            return $reglasDeValidacion;
+        }
+
+        /**
+         * Valida los datos recogidos del formulario
+         * 
+         * */
+        public function validar() 
+        {
+            $validador = new ValidadorForm();
+            $reglasValidacion = $this->crearReglasDeValidacion();
+
+            $resultado = $this->generarResultado();
+
+            $validador->validar($_POST, $reglasValidacion);
+            if ($validador->esValido()) {
+                $this->mostrarFormulario("continuar", $validador, $resultado);
+                exit();
+            }
+
+            $this->mostrarFormulario("validar", $validador, null);
+            exit();
+        }
+
+        /**
+         * Genera el resultado de los datos enviados debajo del formulario
+         * 
+         * @return resultado a imprimir
+         * */
+        public function generarResultado(){
+            $resultado = "";
+            foreach ($_POST as $campo => $valorCampo) {
+                if($valorCampo != "Crear"){
+                    if (is_array($valorCampo)) {
+                        $resultado .= "Generos: <br/>";
+                        foreach ($valorCampo as $generos) {
+                            $resultado .=  " • " . $generos . "<br>";
+                        }
+                    } else {
+                        $resultado .= $campo . ": " . $valorCampo . "<br/>";
+                    }
+                }                
+            }
+            return $resultado;
+        }
+
     }
 ?>
