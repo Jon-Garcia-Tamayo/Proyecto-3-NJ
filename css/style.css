@@ -87,3 +87,8 @@ hr {
 label, input {
     margin: 7px 0px;
 }
+
+img{
+    width: 15%;
+    height: 15%;
+}
