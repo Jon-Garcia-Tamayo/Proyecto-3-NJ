@@ -8,8 +8,8 @@
 <body>
     <header class="header-footer">
         <div class="izquierda">
-            <img src="#" alt="Logotipo">
-            <p>Biblioteca</p>    
+            <img src="img/logo.png" alt="Logotipo">
+            <p>Biblioteca</p>
         </div>
         <div class="derecha">
             <nav>
