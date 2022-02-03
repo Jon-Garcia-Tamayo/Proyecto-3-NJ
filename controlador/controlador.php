@@ -88,7 +88,24 @@
                             $resultado .=  " • " . $generos . "<br>";
                         }
                     } else {
-                        $resultado .= $campo . ": " . strip_tags(trim($valorCampo)) . "<br/>";
+                        $valorCampo = strip_tags(trim($valorCampo));
+                        switch ($campo) {
+                            case 'nombreLibro':
+                                $resultado .= "El nombre del libro es " . $valorCampo . "<br/>";
+                                break;
+
+                            case 'autor':
+                                $resultado .= "El nombre del autor es " . $valorCampo . "<br/>";
+                                break;
+
+                            case 'paginas':
+                                $resultado .= "Tiene " . $valorCampo . " paginas <br/>";
+                                break;
+
+                            case 'portadaTipo':
+                                $resultado .= "La portada es " . $valorCampo . "<br/>";
+                                break;
+                        }
                     }
                 }                
             }
