@@ -9,13 +9,14 @@
         public static function get($dato)
         {
             $campo;
+            $campos;
             if(isset($_POST[$dato])){
                 $campo = $_POST[$dato];
                 $campos = Input::filtrarDato($_POST[$dato]);
             } else {
                 $campo = "";
             }
-            return $campos;
+            return isset($campos) ? $campos : $campo;
         }
 
         public static function filtrarDato($datos)
