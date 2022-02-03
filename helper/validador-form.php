@@ -17,11 +17,11 @@
             foreach ($fuente as $nombreCampo => $valorCampo) {
                 if ($nombreCampo != "crear" && $nombreCampo != "generos") {
                     $arrayRegla = $reglasValidacion[$nombreCampo];
-                    foreach ($arrayRegla as $key => $value) {
+                    foreach ($arrayRegla as $regla => $valorRegla) {
                         $mensajeError;
-                        switch ($key) {
+                        switch ($regla) {
                             case "required":
-                                if (($valorCampo == "") == $value) {
+                                if (($valorCampo == "") == $valorRegla) {
                                     $mensajeError = "ERROR: El campo " . $nombreCampo . " es requerido";
                                     $this->addError($nombreCampo, $mensajeError);
                                 }
