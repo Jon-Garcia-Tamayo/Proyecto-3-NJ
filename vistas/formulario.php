@@ -1,7 +1,7 @@
 <?php
     include "cabecera.php";
-    include "helper/input.php";
-    include "helper/utilidades.php";
+    include "helper/Input.php";
+    include "helper/Utilidades.php";
 ?>
     <?php
         if(Input::siEnviado()){
@@ -52,8 +52,10 @@
                             <input type="radio" name="portadaTipo" value="portadaDura" <?php Utilidades::verificarBotones(Input::get("portadaTipo"), "portadaDura");?> />Dura
                         </div>
 
+                        <input type="file" name="imagenLibro" accept=".pdf,.jpg,.png" required><br/>
+
                         <input class="button" type="submit" name="crear" value="Crear"/>
-                        <input class="button" type="submit" name="filtrar" value="Filtrar" />
+                        <input class="button" type="submit" name="filtrar" value="Filtrar"/>
                     </form>
                 </div>
                 <div>
@@ -71,7 +73,7 @@
 
         <?php
              echo "<div class=\"resultado center-items\"/>";
-             echo $resultado;  
+             echo $resultado; 
              echo "</div>";
         ?>
 
