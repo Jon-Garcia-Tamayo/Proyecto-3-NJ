@@ -15,7 +15,7 @@
         public function validar($fuente, $reglasValidacion) 
         {
             foreach ($fuente as $nombreCampo => $valorCampo) {
-                if ($nombreCampo != "crear" && $nombreCampo != "generos") {
+                if ($nombreCampo != "crear" && $nombreCampo != "generos" && $nombreCampo != "imagenLibro") {
                     $arrayRegla = $reglasValidacion[$nombreCampo];
                     foreach ($arrayRegla as $regla => $valorRegla) {
                         $mensajeError;
