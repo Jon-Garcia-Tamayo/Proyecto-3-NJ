@@ -21,7 +21,7 @@
             <div class="separador">
                 <div>
                     <form method="post" action="index.php">
-                        <h3 class="center-items">Crear/Filtrar</h3>
+                        <h3 class="center-items">Crear</h3>
 
                         <label id="nombreLibro">Nombre Libro</label><br>
                         <input type="text" name="nombreLibro" value="<?php echo Input::get('nombreLibro') ?>" /><br />
@@ -53,19 +53,19 @@
                         </div>
 
                         <input type="file" name="imagenLibro" accept=".pdf,.jpg,.png" required><br/>
-
+                        
                         <input class="button" type="submit" name="crear" value="Crear"/>
-                        <input class="button" type="submit" name="filtrar" value="Filtrar"/>
                     </form>
                 </div>
                 <div>
                     <form method="post" action="index.php">
-                        <h3 class="center-items">Borrar</h3>
+                        <h3 class="center-items">Borrar/Filtrar</h3>
                         <label id="nombreLibro">Nombre Libro</label><br>
                         <input type="text" name="nombreLibro"/><br />
                         <label id="autor">Autor</label><br>
                         <input type="text" name="autor"/><br />
                         <input class="button" type="submit" name="borrar" value="Borrar" />
+                        <input class="button" type="submit" name="filtrar" value="Filtrar"/>
                     </form>
                 </div>
             </div>
