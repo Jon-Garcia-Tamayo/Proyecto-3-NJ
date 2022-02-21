@@ -1,5 +1,7 @@
 <?php
-    include "helper/validador-form.php";
+    include "helper/Validador-Form.php";
+    include "helper/DaoLibro.php";
+    include "modelo/libro.php";
 
 
     /**
@@ -8,6 +10,8 @@
      */
     class Controlador 
     {
+        private $daoLibro;
+
         /**
          * Si el formulario esta relleno muestra el resultado, sino
          * muestra el formulario a rellenar.
@@ -66,6 +70,7 @@
             $validador->validar($_POST, $reglasValidacion);
             if ($validador->esValido()) {
                 $this->mostrarFormulario("continuar", $validador, $resultado);
+                $this->registrar($validador);
                 exit();
             }
 
@@ -111,6 +116,28 @@
             }
             return $resultado;
         }
+
+        public function crearLibro() 
+        {						
+            $libro = new Libro($_POST["nombreLibro"], $_POST["autor"], $_POST["paginas"],$_POST["generos"], $_POST["portadaTipo"], $_POST["imagenLibro"]);
+			return $libro;
+        }
+		
+		public function registrar($validador) 
+		{
+			$this->daoLibro = new DaoLibro();
+			
+			$libro = $this->crearLibro();
+			
+			$nombre = $libro->getNombre();
+			$autor = $libro->getAutor();
+			
+			if (!($this->daoLibro->existeLibro($nombre, $autor))) {
+				echo "<p>" . $this->daoLibro->insertarLibro($libro). "</p>";
+			} else {
+				echo "<p>Este libro ya existe</p>";
+			}
+		}
 
     }
 ?>
