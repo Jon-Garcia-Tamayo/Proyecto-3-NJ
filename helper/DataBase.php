@@ -40,12 +40,27 @@
 
         public function ejecutarSql($sql)
         {
-            $resultado = $this->conexion->prepare($sql);
-            return $resultado->execute();
+			$resultado;
+			try {
+				$resultado = $this->conexion->query($sql);
+			} catch (PDOException $e) {
+				return "Se ha producido un error al ejecutar la sentencia SQL";
+			}
+			return $resultado;
         }
 
         public function ejecutarSqlActualizacion($sql, $args)
         {
+			try {
+				$resultado = $this->conexion->prepare($sql);
+				if ($resultado->execute()) {
+					return "Se ha realizado la operacion $args correctamente";
+				} else {
+					return "Se ha producido un error al ejecutar la sentencia SQL";
+				}
+			} catch (PDOException $e) {
+				return $e->getMessage();
+			}
 			
         }
         
