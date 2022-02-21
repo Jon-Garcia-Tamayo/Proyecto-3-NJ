@@ -7,16 +7,16 @@
         private $nombre;
         private $autor;
         private $paginas;
-        private $genero;
+        private $generos;
         private $portadaBlanda;
         private $rutaImagen;
 
-        public function __construct($nombre, $autor, $paginas, $genero, $portadaBlanda, $rutaImagen)
+        public function __construct($nombre, $autor, $paginas, $generos, $portadaBlanda, $rutaImagen)
         {
             $this->nombre = $nombre;
             $this->autor = $autor;
             $this->paginas = $paginas;
-            $this->genero = $genero;
+            $this->generos = $generos;
             $this->portadaBlanda = $portadaBlanda;
             $this->rutaImagen = $rutaImagen;
         }
@@ -36,9 +36,13 @@
             return $this->paginas;
         }
 
-        public function getGenero()
-        {
-            return $this->genero;
+        public function getGeneros()
+        {	
+			$resultado = "";
+			foreach ($this->generos as $genero) {
+				$resultado .= $genero . " ";
+			}
+            return $resultado;
         }
 
         public function esPortadaBlanda()
