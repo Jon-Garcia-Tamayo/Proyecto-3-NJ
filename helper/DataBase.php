@@ -7,13 +7,13 @@
 
         public function __construct()
         {
-            $this->conexion = $this->conectar();
+			
         }
 
         public function conectar()
         {
             $DB_SERVER = "localhost";
-            $DB_NAME = "bdbiblioteca";
+            $DB_NAME = "bibliotecanj";
             $DB_USER = "root";
             $DB_PASS = "";
 
@@ -23,7 +23,7 @@
                 $db = new PDO("mysql:host=" . $DB_SERVER . ";dbname=" . $DB_NAME, $DB_USER, $DB_PASS);
                 $db->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
                 $db->exec("set names utf8mb4");
-                return $db;
+                $this->conexion = $db;
             } catch (PDOException $e) { 
                 echo "<p>Error: " . $e->getMessage() . "</p>\n";
                 exit();
@@ -46,7 +46,7 @@
 
         public function ejecutarSqlActualizacion($sql, $args)
         {
-
+			
         }
         
     }
