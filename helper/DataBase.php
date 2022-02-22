@@ -19,7 +19,7 @@
         public function conectar()
         {
             $DB_SERVER = "localhost";
-            $DB_NAME = "bibliotecanj";
+            $DB_NAME = "bdbiblioteca";
             $DB_USER = "root";
             $DB_PASS = "";
 
