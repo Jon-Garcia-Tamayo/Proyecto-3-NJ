@@ -130,10 +130,10 @@
 			$libro = $this->crearLibro();
 			
 			$nombre = $libro->getNombre();
-			$autor = $libro->getAutor();
+			$autor = $libro->getAutor();    
 			
 			if (!($this->daoLibro->existeLibro($nombre, $autor))) {
-				echo "<p>" . $this->daoLibro->insertarLibro($libro). "</p>";
+				echo "<p>" . $this->daoLibro->insertarLibro($libro) ? "Se ha realizado la operacion INSERT correctamente" : "No se ha podido insertar el Libro" . "</p>";
 			} else {
 				echo "<p>Este libro ya existe</p>";
 			}
