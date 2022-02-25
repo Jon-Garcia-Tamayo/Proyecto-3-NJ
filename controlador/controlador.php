@@ -83,7 +83,7 @@
          * 
          * @return resultado a imprimir
          * */
-        public function generarResultado(){
+        private function generarResultado(){
             $resultado = "";
             foreach ($_POST as $campo => $valorCampo) {
                 if($valorCampo != "Crear"){
