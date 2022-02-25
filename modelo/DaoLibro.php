@@ -1,5 +1,5 @@
 <?php
-    include "helper/Database.php";
+    include "modelo/Database.php";
 
     /**
      * Esta clase modela el DAO de un libro de la biblioteca
@@ -49,7 +49,7 @@
             $consulta = "SELECT * FROM libro WHERE nombre = '$nombre' AND autor = '$autor';";
 			
             $resultado = $this->db->ejecutarSql($consulta);
-			
+            
 			$datos = "";
 			
 			foreach ($resultado as $columna) {

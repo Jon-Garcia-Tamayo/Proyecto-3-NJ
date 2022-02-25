@@ -1,5 +1,5 @@
 <?php
-    include "helper/IDatabase.php";
+    include "modelo/IDatabase.php";
 
     /**
      * Esta clase modela una base de datos para realizar una conexion.

@@ -1,6 +1,6 @@
 <?php
     include "helper/Validador-Form.php";
-    include "helper/DaoLibro.php";
+    include "modelo/DaoLibro.php";
     include "modelo/libro.php";
 
 
