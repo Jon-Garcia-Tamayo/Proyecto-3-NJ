@@ -74,11 +74,7 @@
         {
             try {
                 $resultado = $this->conexion->prepare($sql);
-                if ($resultado->execute()) {
-                    return "Se ha realizado la operacion $args correctamente";
-                } else {
-                    return "Se ha producido un error al ejecutar la sentencia SQL";
-                }
+                $resultado->execute();
             } catch (PDOException $e) {
                 return $e->getMessage();
             }
