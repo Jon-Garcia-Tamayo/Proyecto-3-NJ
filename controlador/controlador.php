@@ -117,12 +117,24 @@
             return $resultado;
         }
 
+        /**
+         * Crea un objeto libro a partir de los datos recogidos del formulario a través
+         * de $_POST[]
+         * 
+         * @return libro - Objeto libro creado.
+         * */
         public function crearLibro() 
         {						
             $libro = new Libro($_POST["nombreLibro"], $_POST["autor"], $_POST["paginas"],$_POST["generos"], $_POST["portadaTipo"], $_POST["imagenLibro"]);
 			return $libro;
         }
 		
+        /** 
+         * Registra un libro en la base de datos. En caso de que haya un libro existente, se muestra
+         * un mensaje para indicarlo. El mismo caso ocurre si la inserción falla
+         * 
+         * @param validador - validador a utilizar
+         * */
 		public function registrar($validador) 
 		{
 			$this->daoLibro = new DaoLibro();
