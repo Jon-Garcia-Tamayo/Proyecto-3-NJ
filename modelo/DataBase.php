@@ -74,7 +74,7 @@
         {
             try {
                 $resultado = $this->conexion->prepare($sql);
-                $resultado->execute();
+                return $resultado->execute();
             } catch (PDOException $e) {
                 return $e->getMessage();
             }
