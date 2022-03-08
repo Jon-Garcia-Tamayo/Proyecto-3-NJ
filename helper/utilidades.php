@@ -3,9 +3,11 @@
     {
         public static function verificarLista($generos, $valorMenu)
         {
-            foreach ($generos as $genero) {
-                if($genero == $valorMenu){
-                    echo ' selected = "selected"';
+            if(isset($generos)){
+                foreach ($generos as $genero) {
+                    if(trim($genero) == $valorMenu){
+                        return ' selected';
+                    }
                 }
             }
         }
@@ -15,7 +17,6 @@
             if($valor == $valorBoton){
                 echo 'checked = "checked"';
             }
-     
         }
     }
 ?>

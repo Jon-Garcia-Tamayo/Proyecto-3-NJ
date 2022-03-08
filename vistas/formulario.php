@@ -40,7 +40,7 @@
                                     echo "<option value='" . $g . "'";
                                     if(isset($_POST["generos"])) {
                                         echo Utilidades::verificarLista(Input::get("generos"), $g);
-                                    }
+                                    } 
                                     echo ">$g</option>\n";
                                 }
                             ?>
@@ -52,7 +52,7 @@
                             <input type="radio" name="portadaTipo" value="portadaDura" <?php Utilidades::verificarBotones(Input::get("portadaTipo"), "portadaDura");?> />Dura
                         </div>
 
-                        <input type="file" name="imagenLibro" accept=".pdf,.jpg,.png" required><br/>
+                        <input type="file" name="imagenLibro" accept=".pdf,.jpg,.png"><br/>
                         
                         <input class="button" type="submit" name="crear" value="Crear"/>
                     </form>

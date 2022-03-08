@@ -51,7 +51,6 @@
                 "nombreLibro" => array("required" => true),
                 "autor" => array("required" => true),
                 "paginas" => array("required" => true, "type" => "integer"),
-                "portadaTipo" => array("required" => true)
             );
             return $reglasDeValidacion;
         }
@@ -124,9 +123,25 @@
          * @return libro - Objeto libro creado.
          * */
         public function crearLibro() 
-        {						
-            $libro = new Libro($_POST["nombreLibro"], $_POST["autor"], $_POST["paginas"],$_POST["generos"], $_POST["portadaTipo"], $_POST["imagenLibro"]);
-			return $libro;
+        {		        
+            $generos = 0;
+            $portadaTipo = "";
+            $paginas = 0;
+
+            if(!isset($_POST["generos"])){
+                $generos = 0;
+            } else {
+                $generos = count($_POST["generos"]);
+            }
+
+            if(!isset($_POST["portadaTipo"])){
+                $portadaTipo = "";
+            } else {
+                $portadaTipo = $_POST["portadaTipo"];
+            }
+
+            $libro = new Libro($_POST["nombreLibro"], $_POST["autor"], $_POST["paginas"], $generos, $portadaTipo, $_POST["imagenLibro"]);
+            return $libro;
         }
 		
         /** 

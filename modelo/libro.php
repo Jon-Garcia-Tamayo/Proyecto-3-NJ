@@ -38,11 +38,7 @@
 
         public function getGeneros()
         {	
-			$resultado = "";
-			foreach ($this->generos as $genero) {
-				$resultado .= $genero . " ";
-			}
-            return $resultado;
+            return $this->generos;
         }
 
         public function esPortadaBlanda()

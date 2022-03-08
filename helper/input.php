@@ -21,10 +21,15 @@
 
         public static function filtrarDato($datos)
         {
+            $resultado = array();
             if (!is_array($datos)) {
-                $datos = strip_tags(trim($datos));
+                $resultado = strip_tags(trim(htmlspecialchars($datos)));
+            } else {
+                foreach ($datos as $dato) {
+                    $resultado[] = strip_tags(trim(htmlspecialchars($dato))) . " ";
+                }
             }
-            return $datos;
+            return $resultado;
         }
     }
 

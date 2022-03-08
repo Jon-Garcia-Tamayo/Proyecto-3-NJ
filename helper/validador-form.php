@@ -28,12 +28,15 @@
                                 break;
     
                             case "type":
-                                if (is_numeric($valorCampo)) {
-                                    $valorCampo = intval($valorCampo);
-                                } else {
-                                    $mensajeError = "ERROR: El campo " . $nombreCampo . " debe ser numerico";
-                                    $this->addError($nombreCampo, $mensajeError);
-                                }
+                                if(!($valorCampo == "")){
+                                    if (is_numeric($valorCampo)) {
+                                        $valorCampo = intval($valorCampo);
+                                    } else {
+                                        $mensajeError = "ERROR: El campo " . $nombreCampo . " debe ser numerico";
+                                        $this->addError($nombreCampo, $mensajeError);
+                                    }
+                                }                                
+                                
                                 break;
                         }
                     }
